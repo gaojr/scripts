@@ -1,2 +1,3 @@
 # RemoveEmptyFolders
-Remove Empty Folders
+
+Remove all empty folders recursively
