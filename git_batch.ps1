@@ -2,7 +2,10 @@
 $opt = $args[0];
 
 # 要更新的路径
-$paths = [System.Collections.ArrayList]@("path1", "path2");
+$paths = [System.Collections.ArrayList]@(
+    "path1"
+    # ,"path2
+);
 
 function cleanPaths {
     <#
@@ -45,7 +48,7 @@ function runCommand {
     }
 }
 
-function branch {
+function gitBranch {
     <#
     .SYNOPSIS
         git branch
@@ -57,7 +60,7 @@ function branch {
     runCommand -message $message -command $command;
 }
 
-function fetchAllPrune {
+function gitFetchAllPrune {
     <#
     .SYNOPSIS
         git fetch
@@ -69,7 +72,19 @@ function fetchAllPrune {
     runCommand -message $message -command $command;
 }
 
-function status {
+function gitGc {
+    <#
+    .SYNOPSIS
+        git gc
+    .DESCRIPTION
+        run 'git gc --prune=now --aggressive'
+    #>
+    $message = "gc!";
+    $command = "git gc --prune=now --aggressive";
+    runCommand -message $message -command $command;
+}
+
+function gitStatus {
     <#
     .SYNOPSIS
         git status
@@ -82,10 +97,12 @@ function status {
 }
 
 cleanPaths;
-if ($opt -eq "fa") {
-    fetchAllPrune;
-} elseif ($opt -eq "st") {
-    status;
+if ($opt -eq "f") {
+    gitFetchAllPrune;
+} elseif ($opt -eq "s") {
+    gitStatus;
+} elseif ($opt -eq "clear") {
+    gitGc;
 } else {
-    branch;
+    gitBranch;
 }
