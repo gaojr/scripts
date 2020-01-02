@@ -89,10 +89,10 @@ function gitStatus {
     .SYNOPSIS
         git status
     .DESCRIPTION
-        run 'git status --untracked-files --show-stash'
+        run 'git status --short --branch'
     #>
     $message = "status!";
-    $command = "git status --untracked-files --show-stash";
+    $command = "git status --short --branch";
     runCommand -message $message -command $command;
 }
 
