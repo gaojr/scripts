@@ -14,3 +14,7 @@ commands:
 ## remove-empty-folders
 
 Remove all empty folders recursively
+
+## npm
+
+update npm packages
