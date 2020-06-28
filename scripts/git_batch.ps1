@@ -84,6 +84,18 @@ function gitGc {
     runCommand -message $message -command $command;
 }
 
+function gitRebase {
+    <#
+    .SYNOPSIS
+        git rebase
+    .DESCRIPTION
+        run 'git rebase'
+    #>
+    $message = "rebase!";
+    $command = "git rebase";
+    runCommand -message $message -command $command;
+}
+
 function gitStatus {
     <#
     .SYNOPSIS
@@ -101,6 +113,8 @@ if ($opt -eq "f") {
     gitFetchAllPrune;
 } elseif ($opt -eq "s") {
     gitStatus;
+} elseif ($opt -eq "r") {
+    gitRebase;
 } elseif ($opt -eq "clear") {
     gitGc;
 } else {
