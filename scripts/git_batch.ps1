@@ -60,6 +60,20 @@ function gitBranch {
     runCommand -message $message -command $command;
 }
 
+function gitConfig {
+    <#
+    .SYNOPSIS
+        git config
+    .DESCRIPTION
+        run 'git branch -vv'
+    #>
+    $message = "config!";
+    $command = "git config user.name gaojr";
+    runCommand -message $message -command $command;
+    $command = "git config user.email gaojr427@hotmail.com";
+    runCommand -message $message -command $command;
+}
+
 function gitFetchAllPrune {
     <#
     .SYNOPSIS
@@ -115,6 +129,8 @@ if ($opt -eq "f") {
     gitStatus;
 } elseif ($opt -eq "r") {
     gitRebase;
+} elseif ($opt -eq "config") {
+    gitConfig;
 } elseif ($opt -eq "clear") {
     gitGc;
 } else {
