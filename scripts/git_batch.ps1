@@ -65,11 +65,12 @@ function gitConfig {
     .SYNOPSIS
         git config
     .DESCRIPTION
-        run 'git branch -vv'
+        run 'git config user.name' & 'git config user.email'
     #>
-    $message = "config!";
+    $message = "config name!";
     $command = "git config user.name gaojr";
     runCommand -message $message -command $command;
+    $message = "config email!";
     $command = "git config user.email gaojr427@hotmail.com";
     runCommand -message $message -command $command;
 }
