@@ -101,5 +101,8 @@ $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Obj
 Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme ParadoxNoTime
-# $ThemeSettings.Options.OriginSymbols="True" #会启用 $ThemeSettings.GitSymbols.OriginSymbols 的字符
+
+#prettier格式化
+function pt {param($file) prettier --config %APPDATA%\Code\User\.prettierrc.json -c $file}
+function ptw {param($file) prettier --config %APPDATA%\Code\User\.prettierrc.json --write $file}
 ' | Out-File $PROFILE -Append
