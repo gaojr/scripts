@@ -71,6 +71,9 @@ function Write-Theme {
 }
 
 $sl = $global:ThemeSettings #local settings
+#启用 $ThemeSettings.GitSymbols.OriginSymbols 的字符
+$sl.Options.OriginSymbols='True'
+#编码来源 http://www.fontawesome.com.cn/cheatsheet/
 # $sl.GitSymbols.OriginSymbols.Bitbucket=[char]::ConvertFromUtf32(0xF171)
 # $sl.GitSymbols.OriginSymbols.GitLab=[char]::ConvertFromUtf32(0xF296)
 # $sl.GitSymbols.OriginSymbols.Github=[char]::ConvertFromUtf32(0xF09B)
