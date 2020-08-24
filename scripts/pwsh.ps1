@@ -13,7 +13,7 @@ function cleanOutDatedModules {
   {
     Write-Host "Checking $($mod.name)"
     $latest = Get-InstalledModule $mod.name
-    $specificmods = Get-InstalledModule $mod.name --AllVersions
+    $specificmods = Get-InstalledModule $mod.name -AllVersions
     Write-Host "$($specificmods.count) versions of this module found [ $($mod.name) ]"
 
     foreach ($sm in $specificmods)
