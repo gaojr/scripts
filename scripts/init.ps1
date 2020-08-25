@@ -3,7 +3,6 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser #允许运行脚本
 Install-Module posh-git -Scope CurrentUser -Force
 Install-Module oh-my-posh -Scope CurrentUser -Force
 Set-Prompt
-Install-Module -Name Emojis -Scope CurrentUser -Force
 
 # 样式文件
 $themeFile=$ThemeSettings.MyThemesLocation+"\ParadoxNoTime.psm1"
