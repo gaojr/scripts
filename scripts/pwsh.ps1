@@ -1,7 +1,7 @@
 function cleanOutDatedModules {
   <#
   .DESCRIPTION
-      clean outdated modules
+    clean outdated modules
   #>
   Write-Host "this will remove all old versions of installed modules"
   Write-Host "be sure to run this as an admin" -ForegroundColor Yellow
@@ -19,12 +19,12 @@ function cleanOutDatedModules {
     foreach ($sm in $specificmods)
     {
       if ($sm.version -ne $latest.version)
-    {
-      Write-Host "uninstalling $($sm.name) - $($sm.version) [latest is $($latest.version)]"
-      $sm | Uninstall-Module -Force
-      Write-Host "done uninstalling $($sm.name) - $($sm.version)"
-      Write-Host "    --------"
-    }
+      {
+        Write-Host "uninstalling $($sm.name) - $($sm.version) [latest is $($latest.version)]"
+        $sm | Uninstall-Module -Force
+        Write-Host "done uninstalling $($sm.name) - $($sm.version)"
+        Write-Host "--------"
+      }
 
     }
     Write-Host "------------------------"
