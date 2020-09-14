@@ -1,4 +1,4 @@
-function cleanOutDatedModules {
+function cleanOutdatedModules {
   <#
   .DESCRIPTION
     clean outdated modules
@@ -32,4 +32,4 @@ function cleanOutDatedModules {
   Write-Host "done"
 }
 
-cleanOutDatedModules;
+cleanOutdatedModules;
