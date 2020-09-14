@@ -1,3 +1,14 @@
+# 参数
+$opt = $args[0];
+
+function listGlobalAll {
+  <#
+  .DESCRIPTION
+    list global apps
+  #>
+  npm ls -g --depth 0;
+}
+
 function updateOutDatedApps {
   <#
   .DESCRIPTION
@@ -10,4 +21,8 @@ function updateOutDatedApps {
   }
 }
 
-updateOutDatedApps;
+if ($opt -eq "u") {
+  updateOutDatedApps;
+} elseif ($opt -eq "l") {
+  listGlobalAll;
+}
