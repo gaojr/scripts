@@ -12,7 +12,7 @@ function isDirectory {
 function hasPom {
   <#
   .SYNOPSIS
-    有pom文件
+    有 pom 文件
   #>
   param([array]$children);
   return $children.Contains("pom.xml");
