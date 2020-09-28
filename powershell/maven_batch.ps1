@@ -1,5 +1,3 @@
-Set-ExecutionPolicy RemoteSigned
-
 function isDirectory {
   <#
   .SYNOPSIS
