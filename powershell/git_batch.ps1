@@ -80,10 +80,10 @@ function gitFetchAllPrune {
   .SYNOPSIS
     git fetch
   .DESCRIPTION
-    run 'git fetch --all --prune'
+    run 'git fetch --all --tags --prune --prune-tags'
   #>
   $message = "fetch!";
-  $command = "git fetch --all --prune";
+  $command = "git fetch --all --tags --prune --prune-tags";
   runCommand -message $message -command $command;
 }
 
