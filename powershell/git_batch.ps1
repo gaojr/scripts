@@ -1,5 +1,6 @@
 # 参数
 $opt = $args[0];
+$arg1 = $args[1];
 
 # 要更新的路径
 $paths = [System.Collections.ArrayList]@(
@@ -87,6 +88,20 @@ function gitFetchAllPrune {
   runCommand -message $message -command $command;
 }
 
+function gitFindVersion {
+  <#
+  .SYNOPSIS
+    git find version
+  .DESCRIPTION
+    超到提交最早合并进的release分支
+  .PARAMETER commit
+    commit id
+  #>
+  param([string]$commit);
+  $command = "git branch -a --sort=authordate --list '*release/*' --contains $commit | select -First 1";
+  Invoke-Expression $command;
+}
+
 function gitGc {
   <#
   .SYNOPSIS
@@ -134,6 +149,8 @@ if ($opt -eq "f") {
   gitConfig;
 } elseif ($opt -eq "clear") {
   gitGc;
+} elseif ($opt -eq "fv") {
+  gitFindVersion -commit $arg1;
 } else {
   gitBranch;
 }
