@@ -1,5 +1,6 @@
 # 安装
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser #允许运行脚本
+Install-Module Get-ChildItemColor
 Install-Module posh-git -Scope CurrentUser -Force
 Install-Module oh-my-posh -Scope CurrentUser -Force
 Set-Prompt
@@ -97,9 +98,14 @@ chcp 65001 #utf8
 # chcp 20127 #us-ascii
 $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
+Import-Module Get-ChildItemColor
 Import-Module posh-git
 Import-Module oh-my-posh
 Set-Theme ParadoxNoTime
+
+#别名
+Set-Alias -Name ls -Value Get-ChildItemColorFormatWide -option AllScope
+Set-Alias -Name ll -Value Get-ChildItemColor -option AllScope
 
 #prettier格式化
 function pt {param($file) prettier --config %APPDATA%\Code\User\.prettierrc.json -c $file}
