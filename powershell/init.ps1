@@ -110,4 +110,6 @@ Set-Alias -Name ll -Value Get-ChildItemColor -option AllScope
 #prettier格式化
 function pt {param($file) prettier --config %APPDATA%\Code\User\.prettierrc.json -c $file}
 function ptw {param($file) prettier --config %APPDATA%\Code\User\.prettierrc.json --write $file}
+
+$Host.UI.RawUI.WindowTitle = "PowerShell"
 ' | Out-File $PROFILE -Append
