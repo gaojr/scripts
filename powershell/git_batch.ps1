@@ -120,10 +120,18 @@ function gitRebase {
     git rebase
   .DESCRIPTION
     run 'git rebase'
+  .PARAMETER path
+    path
   #>
-  $message = "rebase!";
-  $command = "git rebase";
-  runCommand -message $message -command $command;
+  param([string]$path);
+  if ([String]::IsNullOrEmpty($path)) {
+    $message = "rebase!";
+    $command = "git rebase";
+    runCommand -message $message -command $command;
+  } else {
+    $command = "cd $path | git rebase";
+    Invoke-Expression $command;
+  }
 }
 
 function gitStatus {
@@ -144,7 +152,7 @@ if ($opt -eq "f") {
 } elseif ($opt -eq "s") {
   gitStatus;
 } elseif ($opt -eq "r") {
-  gitRebase;
+  gitRebase -path $arg1;
 } elseif ($opt -eq "config") {
   gitConfig;
 } elseif ($opt -eq "clear") {
