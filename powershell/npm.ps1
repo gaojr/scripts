@@ -6,7 +6,7 @@ function listGlobalAll {
   .DESCRIPTION
     list global apps
   #>
-  npm ls -g --depth 0;
+  npm ls -g --depth=0 --long;
 }
 
 function updateOutDatedApps {
