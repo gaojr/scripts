@@ -5,7 +5,7 @@ if [[ $opt == "f" ]]; then
 elif [[ $opt == "s" ]]; then
   git status --short --branch;
 elif [[ $opt == "fv" ]]; then
-  git branch -a --sort=authordate --list '*release/*' --contains $2 | head -n 1;
+  git branch -a --sort=authordate --list '*/release/*' --contains $2 | sort | head -n 1;
 elif [[ -n "$opt" ]]; then
   git $*;
 else
