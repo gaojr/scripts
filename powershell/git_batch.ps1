@@ -1,4 +1,4 @@
-# 参数
+﻿# 参数
 $opt = $args[0];
 $arg1 = $args[1];
 
@@ -134,6 +134,28 @@ function gitRebase {
   }
 }
 
+function gitRun {
+  <#
+  .SYNOPSIS
+    git
+  .DESCRIPTION
+    run 'git ' + code
+  .PARAMETER path
+    path
+  .PARAMETER code
+    code
+  #>
+  param([string]$path,[string]$code);
+  if ([String]::IsNullOrEmpty($path)) {
+    $message = "$code!";
+    $command = "git $code";
+    runCommand -message $message -command $command;
+  } else {
+    $command = "cd $path | git $code";
+    Invoke-Expression $command;
+  }
+}
+
 function gitStatus {
   <#
   .SYNOPSIS
@@ -159,6 +181,8 @@ if ($opt -eq "f") {
   gitGc;
 } elseif ($opt -eq "fv") {
   gitFindVersion -commit $arg1;
+} elseif ($opt) {
+  gitRun -code $opt -path $arg1;
 } else {
   gitBranch;
 }
