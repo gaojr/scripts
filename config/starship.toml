@@ -1,95 +1,248 @@
 # ~/.config/starship.toml
 
+# https://starship.rs/config
+
+scan_timeout = 30000
+command_timeout = 60000
+
 [character]
-success_symbol = "[✓](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = '[>](bold green) '
+error_symbol = '[x](bold red) '
+vicmd_symbol = '[<](bold green) '
 
-[git_status]
-ahead = "↑${count}"
-behind = "↓${count}"
-diverged = "${ahead_count}↕${behind_count}"
-conflicted = "!${count}"
-untracked = "?${count}"
-stashed = "$${count}"
-modified = "~${count}"
-staged = "+${count}"
-renamed = ">${count}"
-deleted = "-${count}"
+[line_break]
+disabled = false
 
-
-# 组件使用的符号改为字符 https://www.nerdfonts.com/cheat-sheet
-
-[aws]
-symbol = " "
+[jobs]
+disabled = true
 
 [battery]
 disabled = true
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
+
+[directory]
+# truncation_length = 3
+# truncation_symbol = '.../'
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[status]
+
+# [username]
+# [hostname]
+# [time]
+
+[aws]
+symbol = 'aws '
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[cmake]
+symbol = 'cmake '
+format = '\[[$symbol($version)]($style)\]'
+
+[cmd_duration]
+format = 'took [$duration]($style)'
 
 [conda]
-symbol = " "
+symbol = 'conda '
+format = '\[[$symbol$environment]($style)\]'
+
+[crystal]
+symbol = 'crystal '
+format = '\[[$symbol($version)]($style)\]'
 
 [dart]
-symbol = " "
+symbol = 'dart '
+format = '\[[$symbol($version)]($style)\]'
 
-[docker]
-symbol = " "
+[deno]
+symbol = 'deno '
+format = '\[[$symbol($version)]($style)\]'
+
+[docker_context]
+symbol = 'docker '
+format = '\[[$symbol$context]($style)\]'
+
+[dotnet]
+symbol = '.NET '
+format = '\[[$symbol($version)(什 $tfm)]($style)\]'
 
 [elixir]
-symbol = " "
+symbol = 'elixir '
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
-symbol = " "
+symbol = 'elm '
+format = '\[[$symbol($version)]($style)\]'
+
+[erlang]
+symbol = 'erlang '
+format = '\[[$symbol($version)]($style)\]'
+
+[gcloud]
+symbol = 'gcloud '
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-symbol = " "
+symbol = 'git '
+format = '\[[$symbol$branch]($style)\]'
+
+[git_commit]
+commit_hash_length = 8
+tag_disabled = false
+tag_symbol = 'tag '
+
+[git_state]
+rebase = 'REBASING'
+merge = 'MERGING'
+revert = 'REVERTING'
+cherry_pick = 'CHERRY-PICKING'
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+format = '[\([$state($progress_current of $progress_total)]($style)\)]($style)'
+
+[git_metrics]
+disabled = true
+format = '[+$added]($added_style) [-$deleted]($deleted_style)'
+
+[git_status]
+ahead = '↑${count}'
+behind = '↓${count}'
+diverged = '↑${ahead_count}↓${behind_count}'
+conflicted = '!${count}'
+untracked = '?${count}'
+stashed = '#${count}'
+modified = '~${count}'
+staged = '+${count}'
+renamed = '>${count}'
+deleted = '-${count}'
+format = '([\[$all_status$ahead_behind\]]($style))'
 
 [golang]
-symbol = " "
+symbol = 'go '
+format = '\[[$symbol($version)]($style)\]'
 
-[haskell]
-symbol = " "
+[helm]
+symbol = 'helm '
+format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
-symbol = " "
+symbol = 'hg '
+format = '\[[$symbol$branch]($style)\]'
 
 [java]
-symbol = " "
+symbol = 'java '
+format = '\[[$symbol($version)]($style)\]'
 
 [julia]
-symbol = " "
+symbol = 'jl '
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+symbol = 'kt '
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+symbol = 'kubernetes '
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[lua]
+symbol = 'lua '
+format = '\[[$symbol($version)]($style)\]'
 
 [memory_usage]
-symbol = " "
+disabled = true
+symbol = 'memory '
+format = '\[$symbol[$ram(\|$swap)]($style)\]'
 
 [nim]
-symbol = " "
+symbol = 'nim '
+format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
-symbol = " "
+symbol = 'nix '
+format = '\[[$symbol$state(\($name\))]($style)\]'
 
 [nodejs]
-symbol = " "
+symbol = 'nodejs '
+format = '\[[$symbol($version)]($style)\]'
+
+[ocaml]
+symbol = 'ml '
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+[openstack]
+symbol = 'openstack '
+format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [package]
-symbol = " "
+symbol = 'pkg '
+format = '\[[$symbol$version]($style)\]'
 
 [perl]
-symbol = " "
+symbol = 'pl '
+format = '\[[$symbol($version)]($style)\]'
 
 [php]
-symbol = " "
+symbol = 'php '
+format = '\[[$symbol($version)]($style)\]'
+
+[purescript]
+symbol = 'purs '
+format = '\[[$symbol($version)]($style)\]'
 
 [python]
-symbol = " "
+symbol = 'py '
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[rlang]
+symbol = 'rlang '
+format = '\[[$symbol($version)]($style)\]'
+
+[red]
+symbol = 'red '
+format = '\[[$symbol($version)]($style)\]'
 
 [ruby]
-symbol = " "
+symbol = 'rb '
+format = '\[[$symbol($version)]($style)\]'
 
 [rust]
-symbol = " "
+symbol = 'rs '
+format = '\[[$symbol($version)]($style)\]'
+
+[scala]
+symbol = 'scala '
+format = '\[[$symbol($version)]($style)\]'
+
+[singularity]
+symbol = 'singularity '
+format = '\[[$symbol$env]($style)\]'
 
 [swift]
-symbol = "ﯣ "
+symbol = 'swift '
+format = '\[[$symbol($version)]($style)\]'
+
+[terraform]
+symbol = 'terraform '
+format = '\[[$symbol$workspace]($style)\]'
+
+[vagrant]
+symbol = 'vagrant '
+format = '\[[$symbol($version)]($style)\]'
+
+[vcsh]
+symbol = 'vcsh '
+format = '\[[$symbol$repo]($style)\]'
+
+[vlang]
+symbol = 'vlang '
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+symbol = 'zig '
+format = '\[[$symbol($version)]($style)\]'
